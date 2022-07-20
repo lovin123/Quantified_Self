@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+    <title>add_tracker</title>
+</head>
+<body style="background-color: rgb(106, 214, 205) ;">
+
+  <div  class="jumbotron bg-cover text-white" style="background: url(https://swall.teahub.io/photos/small/32-325051_best-dual-monitor-wallpaper-double-screen-wallpaper-space.jpg);">
+    <div style="text-align: right;">
+      <a href="{{url_for('dashboard')}}" ><button type="button" style="width: 10rem;"  class="btn btn-primary" data-mdb-toggle="button" autocomplete="off">Dashboard</button></a>
+      <a href="{{url_for('logout')}}" ><button type="button" style="width: 10rem;"  class="btn btn-primary" data-mdb-toggle="button" autocomplete="off">Logout</button></a> 
+    </div>
+    <div class="container py-4 text-center">
+    <h1 class="display-4 font-weight-bold">Quantified Self</h1>
+    <h3 class="font-italic mb-0">Track and Measure yourself</h3>
+    </div>
+    </div> 
+    <form method="post">
+        <div class="form-group">
+        <h2 style="text-align: center;">Add Tracker</h2>
+
+        <div align = "center">
+            <br>
+            <label for="name">Name</label>
+            <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Enter tracker name"
+            maxlength="30"
+            style="width: 300px; border-radius: 15px; text-align: center"
+            required
+            />
+            <label style="padding-top: 10px;" for="description">Description</label>
+            <textarea
+            class="form-control"
+            id="description"
+            name="description"
+            placeholder="Enter tracker description"
+            maxlength="200"
+            style="width: 300px; border-radius: 15px; text-align: center"
+            required
+        ></textarea>
+        <label style="padding-top: 10px" for="type">Tracker Type</label>
+        <select style="width: 300px;border-radius: 15px; text-align: center" id="type"  class="form-control"  name="type" required>
+            <option value="Numerical">Numerical</option>
+            <option value="Multiple Choice">Multiple Choice</option>
+            <option value="Boolean">Boolean</option>
+        </select>
+            <br>
+            <button type="submit" class="btn" style="border-radius: 12px;background: -webkit-linear-gradient(top, #f8f5f5, #f7f5f4);"><b>Add Tracker</b></button>
+        </div>
+    </div>
+</form>
+
+</body>
+<script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+</html>

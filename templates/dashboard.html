@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body style="background-color: rgb(106, 214, 205) ;">
+
+  <div  class="jumbotron bg-cover text-white" style="background: url(https://swall.teahub.io/photos/small/32-325051_best-dual-monitor-wallpaper-double-screen-wallpaper-space.jpg);">
+    <div style="text-align: right;">
+      <a href="{{url_for('logout')}}" ><button type="button" style="width: 10rem;"  class="btn btn-primary" data-mdb-toggle="button" autocomplete="off">Logout</button></a><br>
+    </div>
+    <div class="container py-4 text-center">
+    <h1 class="display-4 font-weight-bold">Quantified Self</h1>
+    <h3 class="font-italic mb-0">Track and Measure yourself</h3>
+    </div>
+    </div>
+
+    <h2 style="text-align: center;" >Dashboard</h2>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+              <th scope="col">Tracker</th>
+              <th scope="col">Description</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+        {% for tracker in tracker %}
+        {% if tracker.user_id==user.id  %}
+        <tr>
+            {% set tracker_id=tracker.id %}
+            <td><a href="{{ url_for('view_tracker', recordid = tracker_id) }}"><p style="color: black;"><b>{{tracker.name}}</b></p></a></td>
+            <td><b>{{tracker.description}}</b></td>
+            <td><a href="{{ url_for('add_log', recordid = tracker_id) }}" class="btn" style="border-radius: 15px;"><b>Add Log</b></a></td>
+            <td>
+
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border-radius: 15px;background: -webkit-linear-gradient(bottom, #f8f7f6, #f8f6f5);">
+                <b>Actions</b>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="{{ url_for('edit_tracker', recordid = tracker_id) }}">Edit Tracker</a>
+                <a class="dropdown-item" href="{{ url_for('delete_tracker', recordid = tracker_id) }}">Remove Tracker</a>
+            </div>
+        </div>
+    </td>
+</tr>
+{% endif %}
+    {% endfor %}
+</tbody>
+</table>
+<div style="text-align: center;">
+    <a href="/add_tracker" class="btn" style="border-radius: 15px;background: -webkit-linear-gradient(bottom, #f5f6f8, #f5f4f7);"><b> Add Tracker</b></a>
+</div>
+<br>
+
+</body>
+<script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+</html>
